@@ -3,7 +3,6 @@ package svgparser
 import (
 	"bytes"
 	"encoding/xml"
-	"fmt"
 	"io"
 	"io/ioutil"
 	"strings"
@@ -130,7 +129,6 @@ func Parse(source io.Reader, validate bool) (*Element, error) {
 	if err != nil {
 		return nil, err
 	}
-	fmt.Printf("Node: %v\n", element.Name)
 	if err := element.Decode(decoder); err != nil && err != io.EOF {
 		return nil, err
 	}
